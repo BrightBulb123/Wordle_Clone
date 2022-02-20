@@ -21,5 +21,10 @@ namespace Wordle_Clone {
         public MainWindow() {
             InitializeComponent();
         }
+
+        public void Main_Loaded(object sender, RoutedEventArgs e) {
+            int wordTry = 0;
+            lblDebug.Content = wordTry;
+        }
     }
 }
