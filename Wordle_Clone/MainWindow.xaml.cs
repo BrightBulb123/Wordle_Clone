@@ -23,24 +23,14 @@ namespace Wordle_Clone {
         int currentRow = 0;
         int currentColumn = 0;
 
+
         public MainWindow() {
             InitializeComponent();
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
             lblDebug.Content = currentRow;
-            //Border[] borders = {
-            //                BR0C0, BR1C0, BR2C0,
-            //                BR3C0, BR4C0, BR5C0,
-            //                BR0C1, BR1C1, BR2C1,
-            //                BR3C1, BR4C1, BR5C1,
-            //                BR0C2, BR1C2, BR2C2,
-            //                BR3C2, BR4C2, BR5C2,
-            //                BR0C3, BR1C3, BR2C3,
-            //                BR3C3, BR4C3, BR5C3,
-            //                BR0C4, BR1C4, BR2C4,
-            //                BR3C4, BR4C4, BR5C4
-            //                };
+            
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
@@ -48,14 +38,68 @@ namespace Wordle_Clone {
                 lblDebug.Content = "2";
             }
             else if (lblDebug.Content.ToString() == "2") {
-                lblDebug.Content = BR0C0.Child.ToString());
+                lblDebug.Content = "2";
             }
 
             Fill_Box(e.Key.ToString()[0]);
         }
 
         private void Fill_Box(char character) {
+            lblDebug.Content = character;
 
+            if (currentRow == 0) {
+                if (currentColumn == 0) { TR0C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR0C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR0C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR0C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR0C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+            else if (currentRow == 1) {
+                if (currentColumn == 0) { TR1C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR1C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR1C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR1C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR1C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+            else if (currentRow == 2) {
+                if (currentColumn == 0) { TR2C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR2C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR2C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR2C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR2C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+            else if (currentRow == 3) {
+                if (currentColumn == 0) { TR3C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR3C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR3C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR3C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR3C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+            else if (currentRow == 4) {
+                if (currentColumn == 0) { TR4C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR4C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR4C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR4C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR4C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+            else if (currentRow == 5) {
+                if (currentColumn == 0) { TR5C0.Text = character.ToString(); }
+                else if (currentColumn == 1) { TR5C1.Text = character.ToString(); }
+                else if (currentColumn == 2) { TR5C2.Text = character.ToString(); }
+                else if (currentColumn == 3) { TR5C3.Text = character.ToString(); }
+                else if (currentColumn == 4) { TR5C4.Text = character.ToString(); }
+                currentColumn++;
+            }
+
+            if (currentColumn >= 5) {
+                currentRow++;
+                currentColumn = 0;
+            }
         }
     }
 }
