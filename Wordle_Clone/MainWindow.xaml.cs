@@ -40,7 +40,9 @@ namespace Wordle_Clone {
                 lblDebug.Content = "2";
             }
 
-            Fill_Box(e.Key.ToString()[0]);
+            if (currentRow <= 5) {
+                Fill_Box(e.Key.ToString()[0]);
+            }
         }
 
         private void Fill_Box(char character) {
@@ -64,58 +66,44 @@ namespace Wordle_Clone {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
                 if (row % 2 == 0) {
                     //bor.Background = Brushes.Green;
-                    bor.Background = Colours.ColoursDict()["orange"];
+                    bor.Background = Colours.colours["orange"];
                 }
                 else if (row % 3 == 0) {
                     //bor.Background = Brushes.Blue;
-                    bor.Background = Colours.ColoursDict()["blue"];
+                    bor.Background = Colours.colours["blue"];
                 }
                 else {
                     //bor.Background = Brushes.DarkSlateGray;
-                    bor.Background = Colours.ColoursDict()["gray"];
+                    bor.Background = Colours.colours["gray"];
                 }
                 bor.BorderThickness = new Thickness(0);
             }
         }
     }
 
+    /// <summary>
+    /// All the custom brushes to be used in the app
+    /// </summary>
+
     public static class Colours {
-
-        /// <summary>
-        /// All the custom brushes to be used in the app
-        /// </summary>
-
         // Setting up the brushes
         private static readonly BrushConverter bc = new();
+        public static readonly Dictionary<string, Brush> colours = new() {
+            ["gray"] = ObjToBrush(bc.ConvertFrom("#3A3A3C")),
 
-        public static Dictionary<string, Brush> ColoursDict() {
-            Dictionary<string, Brush> colours = new();
-            
-            var gray = bc.ConvertFrom("#3A3A3C");
+            ["blue"] = ObjToBrush(bc.ConvertFrom("#85C0F9")),
+            ["orange"] = ObjToBrush(bc.ConvertFrom("#F5793A")),
 
-            var blue = bc.ConvertFrom("#85C0F9");
-            var orange = bc.ConvertFrom("#F5793A");
+            ["yellow"] = ObjToBrush(bc.ConvertFrom("#B59F3B")),
+            ["green"] = ObjToBrush(bc.ConvertFrom("#538D4E")),
 
-            var yellow = bc.ConvertFrom("#B59F3B");
-            var green = bc.ConvertFrom("#538D4E");
+        };
 
-            if (gray != null) { 
-                colours["gray"] = (Brush)gray;
-            }
-            if (blue != null) {
-                colours["blue"] = (Brush)blue;
-            }
-            if (orange != null) {
-                colours["orange"] = (Brush)orange;
-            }
-            if (yellow != null) {
-                colours["yellow"] = (Brush)yellow;
-            }
-            if (green != null) { 
-                colours["green"] = (Brush)green;
-            }
-
-            return colours;
+        private static Brush ObjToBrush(object? o) {
+            return o switch {
+                Brush b => b,
+                _ => throw new InvalidCastException()
+            };
         }
     }
 }
