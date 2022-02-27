@@ -53,9 +53,69 @@ namespace Wordle_Clone {
             currentColumn++;
 
             if (currentColumn >= 5) {
+                Change_Background(currentRow);
                 currentRow++;
                 currentColumn = 0;
             }
+        }
+
+        private void Change_Background(int row) {
+            for (int i = 0; i < 5; i++) {
+                Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
+                if (row % 2 == 0) {
+                    //bor.Background = Brushes.Green;
+                    bor.Background = Colours.ColoursDict()["orange"];
+                }
+                else if (row % 3 == 0) {
+                    //bor.Background = Brushes.Blue;
+                    bor.Background = Colours.ColoursDict()["blue"];
+                }
+                else {
+                    //bor.Background = Brushes.DarkSlateGray;
+                    bor.Background = Colours.ColoursDict()["gray"];
+                }
+                bor.BorderThickness = new Thickness(0);
+            }
+        }
+    }
+
+    public static class Colours {
+
+        /// <summary>
+        /// All the custom brushes to be used in the app
+        /// </summary>
+
+        // Setting up the brushes
+        private static readonly BrushConverter bc = new();
+
+        public static Dictionary<string, Brush> ColoursDict() {
+            Dictionary<string, Brush> colours = new();
+            
+            var gray = bc.ConvertFrom("#3A3A3C");
+
+            var blue = bc.ConvertFrom("#85C0F9");
+            var orange = bc.ConvertFrom("#F5793A");
+
+            var yellow = bc.ConvertFrom("#B59F3B");
+            var green = bc.ConvertFrom("#538D4E");
+
+            if (gray != null) { 
+                colours["gray"] = (Brush)gray;
+            }
+            if (blue != null) {
+                colours["blue"] = (Brush)blue;
+            }
+            if (orange != null) {
+                colours["orange"] = (Brush)orange;
+            }
+            if (yellow != null) {
+                colours["yellow"] = (Brush)yellow;
+            }
+            if (green != null) { 
+                colours["green"] = (Brush)green;
+            }
+
+            return colours;
         }
     }
 }
