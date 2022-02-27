@@ -28,123 +28,123 @@
                     <ColumnDefinition x:Name="C4" Width="65"/>
                 </Grid.ColumnDefinitions>
                 <Border x:Name="BR0C0" Grid.Row="0" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR0C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR0C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR1C0" Grid.Row="1" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR1C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR1C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR2C0" Grid.Row="2" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR2C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR2C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR3C0" Grid.Row="3" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR3C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR3C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR4C0" Grid.Row="4" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR4C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR4C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR5C0" Grid.Row="5" Grid.Column="0" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR5C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR5C0" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR0C1" Grid.Row="0" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR0C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR0C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR1C1" Grid.Row="1" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR1C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR1C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR2C1" Grid.Row="2" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR2C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR2C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR3C1" Grid.Row="3" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR3C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR3C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR4C1" Grid.Row="4" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR4C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR4C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR5C1" Grid.Row="5" Grid.Column="1" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR5C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR5C1" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR0C2" Grid.Row="0" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR0C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR0C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR1C2" Grid.Row="1" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR1C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR1C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR2C2" Grid.Row="2" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR2C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR2C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR3C2" Grid.Row="3" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR3C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR3C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR4C2" Grid.Row="4" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR4C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR4C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR5C2" Grid.Row="5" Grid.Column="2" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR5C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR5C2" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR0C3" Grid.Row="0" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR0C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR0C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR1C3" Grid.Row="1" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR1C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR1C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR2C3" Grid.Row="2" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR2C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR2C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR3C3" Grid.Row="3" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR3C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR3C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR4C3" Grid.Row="4" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR4C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR4C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR5C3" Grid.Row="5" Grid.Column="3" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR5C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR5C3" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR0C4" Grid.Row="0" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR0C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR0C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR1C4" Grid.Row="1" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR1C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR1C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR2C4" Grid.Row="2" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR2C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR2C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR3C4" Grid.Row="3" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR3C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR3C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR4C4" Grid.Row="4" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR4C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR4C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
 
                 <Border x:Name="BR5C4" Grid.Row="5" Grid.Column="4" Background="Black" BorderBrush="White" BorderThickness="3" Margin="5">
-                    <TextBlock x:Name="TR5C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Aqua" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
+                    <TextBlock x:Name="TR5C4" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="40" FontFamily="Ubuntu Mono" FontWeight="Bold"/>
                 </Border>
             </Grid>
         </StackPanel>
