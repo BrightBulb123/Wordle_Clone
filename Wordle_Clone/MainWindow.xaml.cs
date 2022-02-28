@@ -28,28 +28,41 @@ namespace Wordle_Clone {
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
-            lblDebug.Content = currentRow;
-            
+            lblDebug.Content = currentRow;  // Debug Purposes
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
-            lblDebug.Content = currentColumn;
+            lblDebug.Content = currentColumn;  // Debug Purposes
 
+            // Enter - Move onto the next row/line
             if (e.Key == Key.Enter) {
                 if (currentColumn >= 5) {
-                    Change_Background(currentRow);
+                    ChangeBackground(currentRow);
                     currentRow++;
                     currentColumn = 0;
                 }
                 return;
             }
 
+            // Backspace - Deleting the character in the TextBox in the (previous) column; edge cases handled
+            if (e.Key == Key.Back) {
+
+                if (currentColumn >= 5) { currentColumn = 4; }
+                else if (currentColumn <= 0) { currentColumn = 0; }
+                else { currentColumn--; }
+
+                DeleteChar();
+
+                return;
+            }
+
+            // If not past the last row and not Enter or Backspace pressed
             if (currentRow <= 5) {
-                Fill_Box(e.Key.ToString()[0]);
+                FillBox(e.Key.ToString()[0]);
             }
         }
 
-        private void Fill_Box(char character) {
+        private void FillBox(char character) {
             object txt = Guesses.FindName($"TR{currentRow}C{currentColumn}");
             if (txt is TextBlock txtBlock) {
                 txtBlock.Text = character.ToString();
@@ -59,19 +72,29 @@ namespace Wordle_Clone {
             }
         }
 
-        private void Change_Background(int row) {
+        private void DeleteChar() {
+            object txt = Guesses.FindName($"TR{currentRow}C{currentColumn}");
+            if (txt is TextBlock txtBlock) {
+                txtBlock.Text = "";
+            }
+        }
+
+        /// <summary>
+        /// Changes the background of the TextBlock(s) of the specified row
+        /// </summary>
+        /// <param name="row">The row whose TextBlock(s) will have their background(s) changed</param>
+
+        // Change this logic as it is only for testing!
+        private void ChangeBackground(int row) {
             for (int i = 0; i < 5; i++) {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
                 if (row % 2 == 0) {
-                    //bor.Background = Brushes.Green;
                     bor.Background = Colours.colours["orange"];
                 }
                 else if (row % 3 == 0) {
-                    //bor.Background = Brushes.Blue;
                     bor.Background = Colours.colours["blue"];
                 }
                 else {
-                    //bor.Background = Brushes.DarkSlateGray;
                     bor.Background = Colours.colours["gray"];
                 }
                 bor.BorderThickness = new Thickness(0);

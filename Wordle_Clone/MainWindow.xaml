@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wordle_Clone"
         mc:Ignorable="d"
-        Title="Wordle" Height="800" Width="500" Background="Black" ResizeMode="NoResize" Loaded="Main_Loaded" KeyDown="Main_KeyDown" WindowStartupLocation="CenterScreen">
+        Title="Wordle" Height="650" Width="500" Background="Black" ResizeMode="NoResize" Loaded="Main_Loaded" KeyDown="Main_KeyDown" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
-        <StackPanel Margin="10">
-            <Border Margin="100, 50, 100, 50" CornerRadius="25" Background="Gray">
-                <Label x:Name="lblPhew" Content="Phew!" Foreground="White" FontFamily="Ubuntu Mono" FontSize="100" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Border Margin="100, 50" CornerRadius="10" Background="Gray" Width="100" Height="42.3076923076">
+                <Label x:Name="lblPhew" Width="100" Height="42.3076923076" Content="Phew!" Foreground="White" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             </Border>
             <Grid Margin="5" x:Name="Guesses" Height="360" Width="325">
                 <Grid.RowDefinitions>
