@@ -33,11 +33,15 @@ namespace Wordle_Clone {
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
-            if ((lblDebug.Content.ToString() == "1") || (lblDebug.Content.ToString() == "0")) {
-                lblDebug.Content = "2";
-            }
-            else if (lblDebug.Content.ToString() == "2") {
-                lblDebug.Content = "2";
+            lblDebug.Content = currentColumn;
+
+            if (e.Key == Key.Enter) {
+                if (currentColumn >= 5) {
+                    Change_Background(currentRow);
+                    currentRow++;
+                    currentColumn = 0;
+                }
+                return;
             }
 
             if (currentRow <= 5) {
@@ -46,18 +50,12 @@ namespace Wordle_Clone {
         }
 
         private void Fill_Box(char character) {
-            lblDebug.Content = character;
-
             object txt = Guesses.FindName($"TR{currentRow}C{currentColumn}");
             if (txt is TextBlock txtBlock) {
                 txtBlock.Text = character.ToString();
             }
-            currentColumn++;
-
-            if (currentColumn >= 5) {
-                Change_Background(currentRow);
-                currentRow++;
-                currentColumn = 0;
+            if (currentColumn <= 5) {
+                currentColumn++;
             }
         }
 
