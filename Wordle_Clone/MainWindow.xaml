@@ -8,8 +8,8 @@
         Title="Wordle" Height="650" Width="500" Background="Black" ResizeMode="NoResize" Loaded="Main_Loaded" KeyDown="Main_KeyDown" WindowStartupLocation="CenterScreen">
     <Grid Margin="10">
         <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Border Margin="100, 50" CornerRadius="10" Background="Gray" Width="100" Height="42.3076923076">
-                <Label x:Name="lblPhew" Width="100" Height="42.3076923076" Content="Phew!" Foreground="White" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Border x:Name="BlblMsg" Margin="100, 25" CornerRadius="10" Background="Gray" Width="Auto" Height="42.3076923076" Visibility="Hidden">
+                <Label x:Name="lblMsg" Margin="10, 0, 10, 0" Width="Auto" Height="42.3076923076" Content="Phew!" Foreground="White" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
             </Border>
             <Grid Margin="5" x:Name="Guesses" Height="360" Width="325">
                 <Grid.RowDefinitions>
@@ -148,7 +148,7 @@
                 </Border>
             </Grid>
         </StackPanel>
-        <Label x:Name="lblDebug" Margin="10, 5" Foreground="White" Width="25" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        <Label x:Name="lblDebug" Margin="10, 5" Foreground="White" Width="Auto" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             1
         </Label>
     </Grid>

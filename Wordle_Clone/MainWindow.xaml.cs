@@ -19,21 +19,23 @@ namespace Wordle_Clone {
     /// </summary>
 
     public partial class MainWindow : Window {
-
+        
+        static readonly Random rnd = new();
+        static readonly int lineCount = System.IO.File.ReadLines(@"C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\wordsList.txt").Count();
         int currentRow = 0;
         int currentColumn = 0;
+        string word = string.Empty;
 
         public MainWindow() {
             InitializeComponent();
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
-            lblDebug.Content = currentRow;  // Debug Purposes
+            word = System.IO.File.ReadLines(@"C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First();
+            lblDebug.Content = word;  // Debug Purposes
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
-            lblDebug.Content = currentColumn;  // Debug Purposes
-
             // Enter - Move onto the next row/line
             if (e.Key == Key.Enter) {
                 if (currentColumn >= 5) {
@@ -41,24 +43,20 @@ namespace Wordle_Clone {
                     currentRow++;
                     currentColumn = 0;
                 }
-                return;
             }
-
             // Backspace - Deleting the character in the TextBox in the (previous) column; edge cases handled
-            if (e.Key == Key.Back) {
-
+            else if (e.Key == Key.Back) {
                 if (currentColumn >= 5) { currentColumn = 4; }
                 else if (currentColumn <= 0) { currentColumn = 0; }
                 else { currentColumn--; }
 
                 DeleteChar();
-
-                return;
             }
-
             // If not past the last row and not Enter or Backspace pressed
-            if (currentRow <= 5) {
-                FillBox(e.Key.ToString()[0]);
+            else if (currentRow <= 5) {
+                if ((byte)e.Key <= 69 && (byte)e.Key >= 44) {
+                    FillBox(e.Key.ToString()[0]);
+                }
             }
         }
 
