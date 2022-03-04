@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +23,8 @@ namespace Wordle_Clone {
     public partial class MainWindow : Window {
         
         static readonly Random rnd = new();
-        static readonly int lineCount = System.IO.File.ReadLines(@"C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\wordsList.txt").Count();
+        private static readonly string solPath = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+        static readonly int lineCount = File.ReadLines(solPath + @"\wordsList.txt").Count();
         int currentRow = 0;
         int currentColumn = 0;
         string word = string.Empty;
@@ -31,7 +34,7 @@ namespace Wordle_Clone {
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
-            word = System.IO.File.ReadLines(@"C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First();
+            word = File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First();
             lblDebug.Content = word;  // Debug Purposes
         }
 
