@@ -27,22 +27,23 @@ namespace Wordle_Clone {
         static readonly int lineCount = File.ReadLines(solPath + @"\wordsList.txt").Count();
         int currentRow = 0;
         int currentColumn = 0;
-        string word = string.Empty;
+        char[] word = new char[5];
+        char[] guess = new char[5];
 
         public MainWindow() {
             InitializeComponent();
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
-            word = File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First();
-            lblDebug.Content = word;  // Debug Purposes
+            word = (File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First()).ToCharArray();
+            lblDebug.Content = new string(word);  // Debug Purposes
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
             // Enter - Move onto the next row/line
             if (e.Key == Key.Enter) {
                 if (currentColumn >= 5) {
-                    ChangeBackground(currentRow);
+                    GuessChecker(currentRow);
                     currentRow++;
                     currentColumn = 0;
                 }
@@ -85,23 +86,41 @@ namespace Wordle_Clone {
         /// </summary>
         /// <param name="row">The row whose TextBlock(s) will have their background(s) changed</param>
 
-        // Change this logic as it is only for testing!
-        private void ChangeBackground(int row) {
+        private static void ChangeBackground(Border bor, string result) {
+            if (result == "correct") {
+                bor.Background = Colours.colours["orange"];
+            }
+            else if (result == "wrong spot") {
+                bor.Background = Colours.colours["blue"];
+            }
+            else {
+                bor.Background = Colours.colours["gray"];
+            }
+            bor.BorderThickness = new Thickness(0);
+        }
+
+        private void GuessChecker(int row) {
             for (int i = 0; i < 5; i++) {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
-                if (row % 2 == 0) {
-                    bor.Background = Colours.colours["orange"];
+                TextBlock txtBlock = (TextBlock)bor.FindName($"TR{row}C{i}");
+                char letter = Convert.ToChar(txtBlock.Text);
+                string result;
+                if (letter == word[i]) {
+                    result = "correct";
                 }
-                else if (row % 3 == 0) {
-                    bor.Background = Colours.colours["blue"];
+                else if (word.Contains(letter)) {
+                    result = "wrong spot";
                 }
                 else {
-                    bor.Background = Colours.colours["gray"];
+                    result = "wrong";
                 }
-                bor.BorderThickness = new Thickness(0);
+                guess[i] = letter;
+
+                ChangeBackground(bor, result);
             }
         }
     }
+
 
     /// <summary>
     /// All the custom brushes to be used in the app
