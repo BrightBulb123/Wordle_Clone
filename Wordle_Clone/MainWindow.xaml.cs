@@ -28,6 +28,7 @@ namespace Wordle_Clone {
         int currentRow = 0;
         int currentColumn = 0;
         char[] word = new char[5];
+        Dictionary<char, int> wordCharRepetitions = new();
         char[] guess = new char[5];
 
         public MainWindow() {
@@ -35,7 +36,17 @@ namespace Wordle_Clone {
         }
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
-            word = (File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First()).ToCharArray();
+            word = (File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First()).ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
+            
+            for (int i = 0; i < word.Length; i++) {
+                if (wordCharRepetitions.ContainsKey(word[i])) {
+                    wordCharRepetitions[word[i]]++;
+                }
+                else {
+                    wordCharRepetitions[word[i]] = 1;
+                }
+            }
+
             lblDebug.Content = new string(word);  // Debug Purposes
         }
 
@@ -98,7 +109,7 @@ namespace Wordle_Clone {
             }
             bor.BorderThickness = new Thickness(0);
         }
-
+        
         private void GuessChecker(int row) {
             for (int i = 0; i < 5; i++) {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
