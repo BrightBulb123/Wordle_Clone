@@ -29,7 +29,7 @@ namespace Wordle_Clone {
         int currentColumn = 0;
         char[] word = new char[5];
         Dictionary<char, int> wordCharRepetitions = new();
-        char[] guess = new char[5];
+        GuessChar[] guess = new GuessChar[5];
 
         public MainWindow() {
             InitializeComponent();
@@ -37,17 +37,25 @@ namespace Wordle_Clone {
 
         private void Main_Loaded(object sender, RoutedEventArgs e) {
             word = (File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First()).ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
-            
-            for (int i = 0; i < word.Length; i++) {
-                if (wordCharRepetitions.ContainsKey(word[i])) {
-                    wordCharRepetitions[word[i]]++;
+
+            wordCharRepetitions = OccurenceCounter(word);
+
+            lblDebug.Content = new string(word);  // Debug Purposes
+        }
+
+        private static Dictionary<char, int> OccurenceCounter(char[] arr) {
+            Dictionary<char, int> res = new();
+
+            for (int i = 0; i < arr.Length; i++) {
+                if (res.ContainsKey(arr[i])) {
+                    res[arr[i]]++;
                 }
                 else {
-                    wordCharRepetitions[word[i]] = 1;
+                    res[arr[i]] = 1;
                 }
             }
 
-            lblDebug.Content = new string(word);  // Debug Purposes
+            return res;
         }
 
         private void Main_KeyDown(object sender, KeyEventArgs e) {
@@ -92,16 +100,30 @@ namespace Wordle_Clone {
             }
         }
 
+        private struct GuessChar {
+            public char value;
+            public int column;  // 0-indexed
+            public bool inWord;
+            public bool inCorrectColumn;
+
+            public GuessChar(char value, int column, bool inWord, bool inCorrectColumn) {
+                this.value = value;
+                this.column = column;
+                this.inWord = inWord;
+                this.inCorrectColumn = inCorrectColumn;
+            }
+        }
+
         /// <summary>
         /// Changes the background of the TextBlock(s) of the specified row
         /// </summary>
         /// <param name="row">The row whose TextBlock(s) will have their background(s) changed</param>
 
-        private static void ChangeBackground(Border bor, string result) {
-            if (result == "correct") {
+        private static void ChangeBackground(Border bor, GuessChar letter) {
+            if (letter.inCorrectColumn) {
                 bor.Background = Colours.colours["orange"];
             }
-            else if (result == "wrong spot") {
+            else if (letter.inWord && !(letter.inCorrectColumn)) {
                 bor.Background = Colours.colours["blue"];
             }
             else {
@@ -109,25 +131,33 @@ namespace Wordle_Clone {
             }
             bor.BorderThickness = new Thickness(0);
         }
-        
+
         private void GuessChecker(int row) {
             for (int i = 0; i < 5; i++) {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
                 TextBlock txtBlock = (TextBlock)bor.FindName($"TR{row}C{i}");
-                char letter = Convert.ToChar(txtBlock.Text);
-                string result;
-                if (letter == word[i]) {
-                    result = "correct";
+
+                GuessChar letter = new() {
+                    value = Convert.ToChar(txtBlock.Text),
+                    column = i
+                };
+
+                if (letter.value == word[i]) {
+                    letter.inWord = true;
+                    letter.inCorrectColumn = true;
                 }
-                else if (word.Contains(letter)) {
-                    result = "wrong spot";
+                else if (word.Contains(letter.value)) {
+                    letter.inWord = true;
+                    letter.inCorrectColumn = false;
                 }
                 else {
-                    result = "wrong";
+                    letter.inWord = false;
+                    letter.inCorrectColumn = false;
                 }
+
                 guess[i] = letter;
 
-                ChangeBackground(bor, result);
+                ChangeBackground(bor, letter);
             }
         }
     }
