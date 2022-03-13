@@ -105,13 +105,8 @@ namespace Wordle_Clone {
             public int column;  // 0-indexed
             public bool inWord;
             public bool inCorrectColumn;
-
-            public GuessChar(char value, int column, bool inWord, bool inCorrectColumn) {
-                this.value = value;
-                this.column = column;
-                this.inWord = inWord;
-                this.inCorrectColumn = inCorrectColumn;
-            }
+            public Border bor;
+            public bool allChecked;
         }
 
         /// <summary>
@@ -119,11 +114,12 @@ namespace Wordle_Clone {
         /// </summary>
         /// <param name="row">The row whose TextBlock(s) will have their background(s) changed</param>
 
-        private static void ChangeBackground(Border bor, GuessChar letter) {
-            if (letter.inCorrectColumn) {
+        private static void ChangeBackground(GuessChar letter) {
+            Border bor = letter.bor;
+            if (letter.inCorrectColumn && !letter.allChecked) {
                 bor.Background = Colours.colours["orange"];
             }
-            else if (letter.inWord && !(letter.inCorrectColumn)) {
+            else if (letter.inWord && !letter.inCorrectColumn && !letter.allChecked) {
                 bor.Background = Colours.colours["blue"];
             }
             else {
@@ -139,7 +135,9 @@ namespace Wordle_Clone {
 
                 GuessChar letter = new() {
                     value = Convert.ToChar(txtBlock.Text),
-                    column = i
+                    column = i,
+                    bor = bor,
+                    allChecked = false
                 };
 
                 if (letter.value == word[i]) {
@@ -156,8 +154,28 @@ namespace Wordle_Clone {
                 }
 
                 guess[i] = letter;
+            }
 
-                ChangeBackground(bor, letter);
+            // Copy for manipulating duplicate occurences in guess to see how many have been checked already
+            Dictionary<char, int> wordCharRepetitionsCopy = wordCharRepetitions.ToDictionary(
+                    x => x.Key,
+                    x => x.Value
+                );
+            
+            // Copy for manipulating, sorted by correctness (inCorrectColumn -> inWord/Neither)
+            List<GuessChar> guess2 = guess.Where(l => l.inCorrectColumn).ToList();
+            guess2.AddRange(guess.Where(l => !l.inCorrectColumn).ToList());
+
+            for (int i = 0; i < guess2.Count; i++) {
+                GuessChar letter = guess2[i];
+                try {
+                    if (wordCharRepetitionsCopy[letter.value] > 0) { wordCharRepetitionsCopy[letter.value]--; }
+                    else { letter.allChecked = true; }
+                    ChangeBackground(letter);
+                }
+                catch (KeyNotFoundException) {
+                    ChangeBackground(letter);
+                }
             }
         }
     }
