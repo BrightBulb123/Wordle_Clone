@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Wordle_Clone</id>
+    <version>1.0.0</version>
+    <authors>Wordle_Clone</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0" />
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\bin\Debug\net6.0-windows\Wordle_Clone.runtimeconfig.json" target="lib\net6.0-windows7.0\Wordle_Clone.runtimeconfig.json" />
+    <file src="C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\bin\Debug\net6.0-windows\Wordle_Clone.dll" target="lib\net6.0-windows7.0\Wordle_Clone.dll" />
+  </files>
+</package>

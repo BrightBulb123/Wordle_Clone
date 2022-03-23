@@ -1,0 +1,6 @@
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\wordsList.txt
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\Wordle_Clone.exe
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\Wordle_Clone.dll
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\Wordle_Clone.deps.json
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\Wordle_Clone.runtimeconfig.json
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Published\Wordle_Clone.pdb

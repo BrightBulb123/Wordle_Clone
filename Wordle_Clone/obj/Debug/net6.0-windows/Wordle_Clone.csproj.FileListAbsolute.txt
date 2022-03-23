@@ -40,3 +40,4 @@ C:\Users\Uday Singh\Desktop\Uday Singh\Projects\Programming\C#\Wordle_Clone\Word
 C:\Users\Uday Singh\Desktop\Uday Singh\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\obj\Debug\net6.0-windows\Wordle_Clone.pdb
 C:\Users\Uday Singh\Desktop\Uday Singh\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\obj\Debug\net6.0-windows\Wordle_Clone.genruntimeconfig.cache
 C:\Users\Uday Singh\Desktop\Uday Singh\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\obj\Debug\net6.0-windows\ref\Wordle_Clone.dll
+C:\Users\Uday\Desktop\Projects\Programming\C#\Wordle_Clone\Wordle_Clone\bin\Debug\net6.0-windows\wordsList.txt

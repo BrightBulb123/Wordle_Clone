@@ -23,24 +23,47 @@ namespace Wordle_Clone {
     public partial class MainWindow : Window {
         
         static readonly Random rnd = new();
-        private static readonly string solPath = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-        static readonly int lineCount = File.ReadLines(solPath + @"\wordsList.txt").Count();
+        private static readonly string wordsFilePath = @"wordsList.txt";
+        static readonly int lineCount = File.ReadLines(wordsFilePath).Count();
         int currentRow = 0;
         int currentColumn = 0;
         char[] word = new char[5];
         Dictionary<char, int> wordCharRepetitions = new();
-        GuessChar[] guess = new GuessChar[5];
+        readonly GuessChar[] guess = new GuessChar[5];
 
         public MainWindow() {
             InitializeComponent();
         }
 
-        private void Main_Loaded(object sender, RoutedEventArgs e) {
-            word = (File.ReadLines(solPath + @"\wordsList.txt").Skip(rnd.Next(0, lineCount)).Take(1).First()).ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
+        private void WordPicker(object sender, RoutedEventArgs e) {
+            word = File.ReadLines(wordsFilePath).Skip(rnd.Next(0, lineCount)).Take(1).First().ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
 
             wordCharRepetitions = OccurenceCounter(word);
 
-            lblDebug.Content = new string(word);  // Debug Purposes
+            BorlblMsg.Visibility = Visibility.Hidden;
+            lblMsg.Content = new string(word);
+
+            GridClearer();
+        }
+
+        private void GridClearer() {
+            for (int row = 0; row < 6; row++) {
+                for (int col = 0; col < 5; col++) {
+                    Border bor = (Border)Guesses.FindName($"BR{row}C{col}");
+                    TextBlock txtBlock = (TextBlock)bor.FindName($"TR{row}C{col}");
+
+                    txtBlock.Text = string.Empty;
+                    bor.Background = Brushes.Black;
+                    bor.BorderThickness = new Thickness(3);
+                }
+            }
+            currentColumn = 0;
+            currentRow = 0;
+        }
+
+        private static bool WordChecker(char[] w) {
+            string w2 = new(w);
+            return File.ReadLines(wordsFilePath).Contains(w2);
         }
 
         private static Dictionary<char, int> OccurenceCounter(char[] arr) {
@@ -62,9 +85,19 @@ namespace Wordle_Clone {
             // Enter - Move onto the next row/line
             if (e.Key == Key.Enter) {
                 if (currentColumn >= 5) {
-                    GuessChecker(currentRow);
+                    GuessBuilder(currentRow);
+
+                    if (!WordChecker(guess.Select(x => x.value).ToArray())) {
+                        return;
+                    }
+
+                    GuessChecker();
                     currentRow++;
                     currentColumn = 0;
+
+                    if (currentRow > 5) {
+                        BorlblMsg.Visibility = Visibility.Visible;
+                    }
                 }
             }
             // Backspace - Deleting the character in the TextBox in the (previous) column; edge cases handled
@@ -128,7 +161,7 @@ namespace Wordle_Clone {
             bor.BorderThickness = new Thickness(0);
         }
 
-        private void GuessChecker(int row) {
+        private void GuessBuilder(int row) {
             for (int i = 0; i < 5; i++) {
                 Border bor = (Border)Guesses.FindName($"BR{row}C{i}");
                 TextBlock txtBlock = (TextBlock)bor.FindName($"TR{row}C{i}");
@@ -155,7 +188,9 @@ namespace Wordle_Clone {
 
                 guess[i] = letter;
             }
+        }
 
+        private void GuessChecker() {
             // Copy for manipulating duplicate occurences in guess to see how many have been checked already
             Dictionary<char, int> wordCharRepetitionsCopy = wordCharRepetitions.ToDictionary(
                     x => x.Key,
