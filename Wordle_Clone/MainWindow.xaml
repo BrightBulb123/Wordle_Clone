@@ -8,8 +8,8 @@
         Title="Wordle" Height="650" Width="500" Background="Black" ResizeMode="NoResize" KeyDown="Main_KeyDown" WindowStartupLocation="CenterScreen" Loaded="Main_Loaded">
     <Grid Margin="10">
         <StackPanel Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Border x:Name="BorlblMsg" Margin="100, 25" CornerRadius="10" Background="Gray" Width="Auto" Height="42.3076923076" Visibility="Hidden">
-                <Label x:Name="lblMsg" Margin="10, 0, 10, 0" Width="Auto" Height="42.3076923076" Content="Phew!" Foreground="White" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Border x:Name="BorlblMsg" Margin="100, 25" CornerRadius="10" Background="Gray" Width="Auto" Height="42.3076923076" Visibility="Hidden" Focusable="False" MouseLeftButtonDown="BorlblMsg_MouseLeftButtonDown">
+                <Label x:Name="lblMsg" Margin="10, 0, 10, 0" Width="Auto" Height="42.3076923076" Content="Phew!" Foreground="White" FontFamily="Bahnschrift" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Focusable="False"/>
             </Border>
             <Grid Margin="5" x:Name="Guesses" Height="360" Width="325">
                 <Grid.RowDefinitions>

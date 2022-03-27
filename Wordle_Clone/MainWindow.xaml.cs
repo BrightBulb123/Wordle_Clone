@@ -32,6 +32,8 @@ namespace Wordle_Clone {
         readonly GuessChar[] guess = new GuessChar[5];
         private static bool gameOver = false;
         private static List<char> wrongLetters = new();
+        private static string results = "";
+        private static int guessedIn = 0;
 
         public MainWindow() {
             InitializeComponent();
@@ -54,6 +56,9 @@ namespace Wordle_Clone {
             lblMsg.Content = new string(word);
 
             GridClearer();
+
+            results = "";
+            guessedIn = 0;
         }
 
         private void GridClearer() {
@@ -90,7 +95,6 @@ namespace Wordle_Clone {
                     res[arr[i]] = 1;
                 }
             }
-
             return res;
         }
 
@@ -175,12 +179,15 @@ namespace Wordle_Clone {
             Border bor = letter.bor;
             if (letter.inCorrectColumn && !letter.allChecked) {
                 bor.Background = Colours.colours["orange"];
+                results += "🟧";
             }
             else if (letter.inWord && !letter.inCorrectColumn && !letter.allChecked) {
                 bor.Background = Colours.colours["blue"];
+                results += "🟦";
             }
             else {
                 bor.Background = Colours.colours["gray"];
+                results += "⬛";
             }
             bor.BorderThickness = new Thickness(0);
         }
@@ -236,8 +243,14 @@ namespace Wordle_Clone {
                     ChangeBackground(letter);
                 }
             }
+            results += "\n";
 
-            if (guess.Select(x => x.value).ToArray().SequenceEqual(word)) { gameOver = true; BorlblMsg.Visibility = Visibility.Visible; }
+            if (guess.Select(x => x.value).ToArray().SequenceEqual(word)) { gameOver = true; BorlblMsg.Visibility = Visibility.Visible; guessedIn = currentRow; }
+        }
+
+        private void BorlblMsg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) {
+            if (guessedIn != 0) { Clipboard.SetText($"Wordle_Clone {currentRow}/6\n\n" + results + "\nThink you can do better?\nTry Wordle_Clone by downloading it from my latest message (check Le)"); }
+            else { Clipboard.SetText("Wordle_Clone X/6\n\n" + results + "\nThink you can do better?\nTry Wordle_Clone by downloading it from my latest message (check Le)"); }
         }
     }
 
