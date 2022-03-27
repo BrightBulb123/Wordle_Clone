@@ -23,20 +23,30 @@ namespace Wordle_Clone {
     public partial class MainWindow : Window {
         
         static readonly Random rnd = new();
-        private static readonly string wordsFilePath = @"wordsList.txt";
-        static readonly int lineCount = File.ReadLines(wordsFilePath).Count();
+        private static readonly string wordsFileName = @"wordsList.txt";
+        static readonly int lineCount = File.ReadLines(wordsFileName).Count();
         int currentRow = 0;
         int currentColumn = 0;
         char[] word = new char[5];
         Dictionary<char, int> wordCharRepetitions = new();
         readonly GuessChar[] guess = new GuessChar[5];
+        private static bool gameOver = false;
+        private static List<char> wrongLetters = new();
 
         public MainWindow() {
             InitializeComponent();
         }
 
-        private void WordPicker(object sender, RoutedEventArgs e) {
-            word = File.ReadLines(wordsFilePath).Skip(rnd.Next(0, lineCount)).Take(1).First().ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
+        private void btnRerollClicked(object sender, RoutedEventArgs e) {
+            WordPicker();
+        }
+
+        private void Main_Loaded(object sender, RoutedEventArgs e) {
+            WordPicker();
+        }
+
+        private void WordPicker() {
+            word = File.ReadLines(wordsFileName).Skip(rnd.Next(0, lineCount)).Take(1).First().ToCharArray();  // Pick the word that is randomly chosen by a value between 0 and file length.
 
             wordCharRepetitions = OccurenceCounter(word);
 
@@ -59,11 +69,14 @@ namespace Wordle_Clone {
             }
             currentColumn = 0;
             currentRow = 0;
+            gameOver = false;
+            wrongLetters = new();
+            lblWrongLetters.Content = "";
         }
 
         private static bool WordChecker(char[] w) {
             string w2 = new(w);
-            return File.ReadLines(wordsFilePath).Contains(w2);
+            return File.ReadLines(wordsFileName).Contains(w2);
         }
 
         private static Dictionary<char, int> OccurenceCounter(char[] arr) {
@@ -84,6 +97,8 @@ namespace Wordle_Clone {
         private void Main_KeyDown(object sender, KeyEventArgs e) {
             // Enter - Move onto the next row/line
             if (e.Key == Key.Enter) {
+                if (gameOver) { WordPicker(); return; }
+
                 if (currentColumn >= 5) {
                     GuessBuilder(currentRow);
 
@@ -91,15 +106,24 @@ namespace Wordle_Clone {
                         return;
                     }
 
+                    wrongLetters.AddRange(guess.Where(l => !l.inWord).ToArray().Select(l => l.value).ToArray());
+                    wrongLetters.Sort();
+                    wrongLetters = wrongLetters.Distinct().ToList();
+                    lblWrongLetters.Content = "Wrong: " + string.Join(", ", wrongLetters.ToArray());
+
                     GuessChecker();
                     currentRow++;
                     currentColumn = 0;
 
                     if (currentRow > 5) {
                         BorlblMsg.Visibility = Visibility.Visible;
+                        gameOver = true;
                     }
                 }
             }
+
+            else if (gameOver) { return; }
+
             // Backspace - Deleting the character in the TextBox in the (previous) column; edge cases handled
             else if (e.Key == Key.Back) {
                 if (currentColumn >= 5) { currentColumn = 4; }
@@ -212,6 +236,8 @@ namespace Wordle_Clone {
                     ChangeBackground(letter);
                 }
             }
+
+            if (guess.Select(x => x.value).ToArray().SequenceEqual(word)) { gameOver = true; BorlblMsg.Visibility = Visibility.Visible; }
         }
     }
 

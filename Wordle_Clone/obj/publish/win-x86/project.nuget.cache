@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "om3a4I21f5QTMMAzHof4sk4yVy5iYtNVcG4SuVhu17EN+bJQJ+c1r3byi/3+UuOPgTLsfR8qfp0BSwfeOFUmIA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Uday\\Desktop\\Projects\\Programming\\C#\\Wordle_Clone\\Wordle_Clone\\Wordle_Clone.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Uday\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x86\\6.0.3\\microsoft.netcore.app.runtime.win-x86.6.0.3.nupkg.sha512",
+    "C:\\Users\\Uday\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x86\\6.0.3\\microsoft.windowsdesktop.app.runtime.win-x86.6.0.3.nupkg.sha512",
+    "C:\\Users\\Uday\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x86\\6.0.3\\microsoft.aspnetcore.app.runtime.win-x86.6.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
